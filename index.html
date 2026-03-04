@@ -40,7 +40,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      padding: 60px 24px 80px;
+      padding: 60px 24px 100px;
     }
 
     .hero-bg {
@@ -905,7 +905,54 @@
       .meta-divider { display: none; }
     }
 
-    /* Scroll animations */
+    /* ── SCARCITY BAR ── */
+    .scarcity-bar-wrap {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      padding: 0 0 18px;
+      text-align: center;
+    }
+    .scarcity-inner {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    .scarcity-top {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+    .scarcity-pct {
+      font-size: .72rem;
+      color: rgba(255,255,255,.4);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .scarcity-track {
+      width: 100%;
+      height: 10px;
+      background: rgba(255,255,255,.08);
+      overflow: hidden;
+    }
+    .scarcity-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--purple-mid), var(--gold));
+      transition: width 1.2s ease;
+    }
+    .scarcity-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: .88rem;
+      color: rgba(255,255,255,.4);
+      letter-spacing: .01em;
+      margin-top: 12px;
+      padding: 0 24px;
+    }
+
+  
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -981,6 +1028,26 @@
         <span class="btn-secondary" style="cursor:default;">⚡ Limited Spaces Available</span>
       </div>
     </div>
+
+    <!-- ══ SCARCITY BAR ══
+         To update: change the number in id="seats-remaining" and id="seats-total"
+         The bar and percentage recalculate automatically.
+    ══════════════════════ -->
+    <div class="scarcity-bar-wrap">
+      <div class="scarcity-inner">
+        <div class="scarcity-top">
+          <div class="scarcity-pct" id="seats-pct"></div>
+        </div>
+        <div class="scarcity-track">
+          <div class="scarcity-fill" id="seats-fill"></div>
+        </div>
+        <div class="scarcity-note">To preserve the warmth of meaningful networking, in-person seating is intentionally limited.</div>
+      </div>
+      <!-- Hidden values used by JS — edit these numbers -->
+      <span id="seats-remaining" style="display:none">36</span>
+      <span id="seats-total" style="display:none">45</span>
+    </div>
+
   </section>
 
   <!-- ABOUT -->
@@ -1330,6 +1397,15 @@
   </footer>
 
   <script>
+    // ── Scarcity bar ──
+    // EDIT: change these two numbers when someone registers
+    const SEATS_REMAINING = parseInt(document.getElementById('seats-remaining').textContent);
+    const SEATS_TOTAL     = parseInt(document.getElementById('seats-total').textContent);
+    const takenPct = Math.round(((SEATS_TOTAL - SEATS_REMAINING) / SEATS_TOTAL) * 100);
+    const remainPct = 100 - takenPct;
+    document.getElementById('seats-fill').style.width = takenPct + '%';
+    document.getElementById('seats-pct').textContent = remainPct + '% remaining';
+
     // Countdown to March 14, 2026
     function updateCountdown() {
       const eventDate = new Date('2026-03-14T09:00:00');
