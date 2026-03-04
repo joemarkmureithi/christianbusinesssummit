@@ -1411,7 +1411,7 @@
     const takenPct = Math.round(((SEATS_TOTAL - SEATS_REMAINING) / SEATS_TOTAL) * 100);
     const remainPct = 100 - takenPct;
     document.getElementById('seats-fill').style.width = takenPct + '%';
-    document.getElementById('seats-pct').textContent = remainPct + '% remaining';
+    document.getElementById('seats-pct').textContent = remainPct + '% spaces remaining';
 
     // Countdown to March 14, 2026
     function updateCountdown() {
