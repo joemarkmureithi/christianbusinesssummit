@@ -899,10 +899,18 @@
 
     @media(max-width: 600px) {
       section { padding: 64px 18px; }
-      .hero { padding: 40px 18px 60px; }
+      .hero { padding: 40px 18px 120px; }
+      .hero-title { font-size: 3rem; }
+      .hero-theme { font-size: 1.2rem; }
+      .countdown-num { font-size: 3rem; }
+      .countdown-box { padding: 12px 36px; }
       .speakers-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero-meta { gap: 20px; }
+      .hero-meta { gap: 16px; flex-direction: column; align-items: center; }
       .meta-divider { display: none; }
+      .cta-group { flex-direction: column; align-items: center; width: 100%; }
+      .btn-primary { width: 100%; text-align: center; box-sizing: border-box; }
+      .organizer-badge { font-size: .7rem; padding: 6px 14px; }
+      .scarcity-note { font-size: .78rem; padding: 0 16px; }
     }
 
     /* ── SCARCITY BAR ── */
@@ -1025,7 +1033,6 @@
 
       <div class="cta-group">
         <span class="btn-primary" style="cursor:pointer;" onclick="const t=document.getElementById('till');t.scrollIntoView({behavior:'smooth'});setTimeout(()=>{t.classList.add('highlight');setTimeout(()=>t.classList.remove('highlight'),1800)},600)">Register Now — KSh 1,000</span>
-        <span class="btn-secondary" style="cursor:default;">⚡ Limited Spaces Available</span>
       </div>
     </div>
 
