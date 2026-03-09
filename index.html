@@ -1018,6 +1018,75 @@
   background: rgba(201,168,76,.1);
   border-color: var(--gold);
 }
+
+    /* ── FAQ ── */
+    .faq { background: var(--white); }
+    .faq-header { text-align: center; margin-bottom: 64px; }
+    .faq-header .gold-divider { margin: 0 auto 24px; }
+    .faq-header .section-body { margin: 0 auto; text-align: center; }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(0,0,0,.07);
+    }
+    .faq-item:first-child {
+      border-top: 1px solid rgba(0,0,0,.07);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--purple-deep);
+      line-height: 1.4;
+      transition: color .2s;
+    }
+    .faq-question:hover { color: var(--purple-mid); }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(201,168,76,.5);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-size: 1.1rem;
+      transition: transform .3s, background .2s;
+      font-style: normal;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      background: var(--gold-pale);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, padding .3s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+      padding-bottom: 22px;
+    }
+    .faq-answer p {
+      font-size: .95rem;
+      line-height: 1.8;
+      color: #555;
+    }
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J51H662CRG"></script>
@@ -1384,6 +1453,122 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-header reveal">
+        <span class="section-label">Questions</span>
+        <div class="gold-divider"></div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-body">Everything you need to know before you register.</p>
+      </div>
+
+      <div class="faq-list reveal">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Who is the Christian Business Summit for?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>This event is for entrepreneurs, professionals, aspiring founders, and investors who want to explore what it looks like to build businesses with integrity, purpose, and faith. Whether you are just starting out or already running a business, if you are serious about building something that lasts — this room is for you.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do I have to be a Christian to attend?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>The Summit is faith-centered and all conversations will be rooted in a Christian worldview. You are welcome to attend if you respect that context — regardless of where you are on your own faith journey. We are not here to preach. We are here to have honest conversations about business, purpose, and character.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What will actually happen on the day?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>It is a half-day event — four hours of keynote sessions, real stories from practitioners, and structured conversations at your table. There are five speakers, a tea break for networking, and intentional table activities designed to help you connect meaningfully with the people seated around you. You will not spend the day in your seat clapping. You will be part of the conversation.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is this just another motivational event?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>No. The speakers at CBS 2026 are practitioners — people who have actually built businesses, navigated failure, raised capital, and led teams. The sessions are designed around real frameworks and honest stories, not performance or hype. We built this because we were tired of events that leave you inspired for a day and unchanged by Monday.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do I register and pay?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Registration is simple. Pay KSh 1,000 via M-PESA to Till Number 9962417 (Steward Nexus), then send your name and proof of payment to 0728 094 604 on WhatsApp. Your seat will be confirmed within 24 hours.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What is the difference between the advance price and the door price?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>The advance price is KSh 1,000 and is available until Friday 13th March. The door price is KSh 1,350 on the day — if seats are still available. We recommend registering early as capacity is intentionally limited to preserve the quality of the experience.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Why is capacity limited?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We deliberately capped attendance to create a room where real conversations can happen. Large conferences are great for inspiration — this event is designed for connection, depth, and follow-through. Keeping the room small means every person here was chosen deliberately, and the conversations at your table will actually matter.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            I am not a business owner yet. Is this still relevant to me?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. Some of the most valuable people in any entrepreneurial ecosystem are those who are still building — aspiring founders, professionals exploring a business idea, or employees who sense there is something more they are meant to build. If that is you, you will leave with clarity, connections, and a clearer sense of your next step.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What should I bring?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Bring a notebook, your business cards, and an open mind. Come ready to participate — not just observe. The table activities are designed to be practical, so the more honestly you show up, the more you will get out of the day.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Will there be future events after this one?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. The Christian Business Summit 2026 is the first event under the Steward Nexus platform, which is being built as a long-term ecosystem for faith-driven entrepreneurs and professionals in Africa. If you want to stay connected and be among the first to hear about what comes next, make sure you register your contact details on the day or follow us at @stewardnexus.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- VENUE -->
   <section class="venue" id="venue">
     <div class="container">
@@ -1513,6 +1698,13 @@ function addToCalendar() {
     `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${start}/${end}&location=${location}&details=${details}`,
     '_blank'
   );
+}
+// FAQ accordion
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
 }
     
   </script>
